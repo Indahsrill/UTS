@@ -1,0 +1,33 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://ec2-52-3-60-53.compute-1.amazonaws.com:5433/dlf1grl1vnfo
+    username: jfdrpwssfhdhld
+    password: a136f60e9991fd140d93596301e6e587d8f920f862b9073598037898ed63c200
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  messages:
+    basename: base
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: hilmansuhe04@gmail.com
+    password: rkrbascvvvlvayvh
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 30000
+          timeout: 30000
+    protocol: smtp
+    test-connection: false

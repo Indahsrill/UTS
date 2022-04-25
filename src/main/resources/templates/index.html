@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="" name="description">
+  <meta content="Mark Otto, Jacob Thornton, and Bootstrap contributors" name="author">
+  <meta content="Hugo 0.88.1" name="generator">
+  <title>Dashboard</title>
+
+  <link href="https://getbootstrap.com/docs/5.1/examples/blog/" rel="canonical">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" type="text/css">
+
+  <style>
+    body{
+      background-color: #e2e3e5;
+    }
+
+    .carousel1{
+      padding-top: 30px;
+    }
+    h3{
+      padding-top: 50px;
+      color: #0c4128;
+    }
+    h4{
+      padding-top: 50px;
+      text-align: justify;
+      color: #1a1e21;
+      background-color: #e2e3e5;
+    }
+    h6{
+      font-family: "Agency FB";
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" th:href="@{css/blog.css}" type="text/css">
+</head>
+<body>
+
+<main class="container">
+  <header class="blog-header py-2">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-3 pt-1">
+        <h6>TEKNIK INFORMATIKA C</h6>
+      </div>
+      <div class="col-6 text-center">
+        <h3>SELAMAT DATANG!</h3>
+      </div>
+      <div class="col-3 d-flex justify-content-end align-items-center">
+        <a aria-label="Search" class="link-secondary" href="#">
+          <svg class="mx-3" fill="none" height="20" role="img" stroke="currentColor" stroke-linecap="round"
+               stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"
+               xmlns="http://www.w3.org/2000/svg"><title>Search</title>
+            <circle cx="10.5" cy="10.5" r="7.5"/>
+            <path d="M21 21l-5.2-5.2"/>
+          </svg>
+        </a>
+        <a class="btn btn-sm btn-success" href="signup.html">Sign up</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="carousel1">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2020/04/15/1447146846.jpeg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="..." class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="container2"><h4>LIST TUGAS</h4>
+    <div class="container"><a class="btn btn-outline-primary" role="button" th:href="@{/create}">New</a></div>
+    <div class="container">
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Matkul</th>
+          <th scope="col">Deskripsi</th>
+          <th scope="col">Deadline</th>
+          <th scope="col">Pengumpulan</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="s : ${student}">
+          <td scope="col" th:text="${s.firstName}"></td>
+          <td scope="col" th:text="${s.lastName}"></td>
+          <td scope="col" th:text="${s.birthDate}"></td>
+          <td scope="col" th:text="${s.email}"></td>
+          <td scope="col">
+            <a class="btn btn-primary" role="button" th:href="${'/edit/'+s.id}"><span>Edit</span></a>
+            <a class="btn btn-danger" role="button" th:href="${'/hapus/'+s.id}"><span>Remove</span></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-12 col-sm-12">
+          <div class="footer-bottom">
+            <div class="col-md-6 col-sm-5">
+              <div class="copyright-text">
+                <p style="text-align: center">Copyright &copy; 2020 Teknik Informatika C</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
